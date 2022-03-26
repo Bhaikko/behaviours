@@ -1,128 +1,123 @@
 {
-	"version": "0.2.0",
-	"configurations": [
-		{
-			"name": "AiBehaviors (Debug)",
-			"request": "launch",
-			"preLaunchTask": "AiBehaviors Win64 Debug Build",
-			"program": "D:\\Data\\Unreal\\AiBehaviors\\Binaries\\Win64\\UE4-Win64-Debug.exe",
-			"args": [
-			],
-			"cwd": "D:\\Installed\\UE_4.27",
-			"stopAtEntry": false,
-			"externalConsole": true,
-			"type": "cppvsdbg",
-			"visualizerFile": "D:\\Installed\\UE_4.27\\Engine\\Extras\\VisualStudioDebugging\\UE4.natvis"
-		},
-		{
-			"name": "AiBehaviors (DebugGame)",
-			"request": "launch",
-			"preLaunchTask": "AiBehaviors Win64 DebugGame Build",
-			"program": "D:\\Data\\Unreal\\AiBehaviors\\Binaries\\Win64\\UE4-Win64-DebugGame.exe",
-			"args": [
-			],
-			"cwd": "D:\\Installed\\UE_4.27",
-			"stopAtEntry": false,
-			"externalConsole": true,
-			"type": "cppvsdbg",
-			"visualizerFile": "D:\\Installed\\UE_4.27\\Engine\\Extras\\VisualStudioDebugging\\UE4.natvis"
-		},
-		{
-			"name": "AiBehaviors (Development)",
-			"request": "launch",
-			"preLaunchTask": "AiBehaviors Win64 Development Build",
-			"program": "D:\\Data\\Unreal\\AiBehaviors\\Binaries\\Win64\\UE4.exe",
-			"args": [
-			],
-			"cwd": "D:\\Installed\\UE_4.27",
-			"stopAtEntry": false,
-			"externalConsole": true,
-			"type": "cppvsdbg",
-			"visualizerFile": "D:\\Installed\\UE_4.27\\Engine\\Extras\\VisualStudioDebugging\\UE4.natvis"
-		},
-		{
-			"name": "AiBehaviors (Shipping)",
-			"request": "launch",
-			"preLaunchTask": "AiBehaviors Win64 Shipping Build",
-			"program": "D:\\Data\\Unreal\\AiBehaviors\\Binaries\\Win64\\UE4-Win64-Shipping.exe",
-			"args": [
-			],
-			"cwd": "D:\\Installed\\UE_4.27",
-			"stopAtEntry": false,
-			"externalConsole": true,
-			"type": "cppvsdbg",
-			"visualizerFile": "D:\\Installed\\UE_4.27\\Engine\\Extras\\VisualStudioDebugging\\UE4.natvis"
-		},
-		{
-			"name": "AiBehaviors (Test)",
-			"request": "launch",
-			"preLaunchTask": "AiBehaviors Win64 Test Build",
-			"program": "D:\\Data\\Unreal\\AiBehaviors\\Binaries\\Win64\\UE4-Win64-Test.exe",
-			"args": [
-			],
-			"cwd": "D:\\Installed\\UE_4.27",
-			"stopAtEntry": false,
-			"externalConsole": true,
-			"type": "cppvsdbg",
-			"visualizerFile": "D:\\Installed\\UE_4.27\\Engine\\Extras\\VisualStudioDebugging\\UE4.natvis"
-		},
-		{
-			"name": "AiBehaviorsEditor (Debug)",
-			"request": "launch",
-			"preLaunchTask": "AiBehaviorsEditor Win64 Debug Build",
-			"program": "D:\\Installed\\UE_4.27\\Engine\\Binaries\\Win64\\UE4Editor-Win64-Debug.exe",
-			"args": [
-				"D:\\Data\\Unreal\\AiBehaviors\\AiBehaviors.uproject"
-			],
-			"cwd": "D:\\Installed\\UE_4.27",
-			"stopAtEntry": false,
-			"externalConsole": true,
-			"type": "cppvsdbg",
-			"visualizerFile": "D:\\Installed\\UE_4.27\\Engine\\Extras\\VisualStudioDebugging\\UE4.natvis"
-		},
-		{
-			"name": "AiBehaviorsEditor (DebugGame)",
-			"request": "launch",
-			"preLaunchTask": "AiBehaviorsEditor Win64 DebugGame Build",
-			"program": "D:\\Installed\\UE_4.27\\Engine\\Binaries\\Win64\\UE4Editor-Win64-DebugGame.exe",
-			"args": [
-				"D:\\Data\\Unreal\\AiBehaviors\\AiBehaviors.uproject"
-			],
-			"cwd": "D:\\Installed\\UE_4.27",
-			"stopAtEntry": false,
-			"externalConsole": true,
-			"type": "cppvsdbg",
-			"visualizerFile": "D:\\Installed\\UE_4.27\\Engine\\Extras\\VisualStudioDebugging\\UE4.natvis"
-		},
-		{
-			"name": "AiBehaviorsEditor (Development)",
-			"request": "launch",
-			"preLaunchTask": "AiBehaviorsEditor Win64 Development Build",
-			"program": "D:\\Installed\\UE_4.27\\Engine\\Binaries\\Win64\\UE4Editor.exe",
-			"args": [
-				"D:\\Data\\Unreal\\AiBehaviors\\AiBehaviors.uproject"
-			],
-			"cwd": "D:\\Installed\\UE_4.27",
-			"stopAtEntry": false,
-			"externalConsole": true,
-			"type": "cppvsdbg",
-			"visualizerFile": "D:\\Installed\\UE_4.27\\Engine\\Extras\\VisualStudioDebugging\\UE4.natvis"
-		},
-		{
-			"name": "Generate Project Files",
-			"type": "clr",
-			"request": "launch",
-			"program": "D:\\Installed\\UE_4.27\\Engine\\Binaries\\DotNET\\UnrealBuildTool.exe",
-			"console": "externalTerminal",
-			"args": [
-				"-projectfiles",
-				"-vscode",
-				"-project=D:\\Data\\Unreal\\AiBehaviors\\AiBehaviors.uproject",
-				"-game",
-				"-engine"
-			],
-			"internalConsoleOptions": "openOnSessionStart",
-			"cwd": "D:\\Installed\\UE_4.27"
-		}
-	]
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "AiBehaviors (Debug)",
+            "request": "launch",
+            "preLaunchTask": "AiBehaviors Win64 Debug Build",
+            "program": "D:\\Data\\Unreal\\AiBehaviors\\Binaries\\Win64\\UE4-Win64-Debug.exe",
+            "args": [],
+            "cwd": "D:\\Installed\\UE_4.27",
+            "stopAtEntry": false,
+            "type": "cppvsdbg",
+            "visualizerFile": "D:\\Installed\\UE_4.27\\Engine\\Extras\\VisualStudioDebugging\\UE4.natvis",
+            "console": "newExternalWindow"
+        },
+        {
+            "name": "AiBehaviors (DebugGame)",
+            "request": "launch",
+            "preLaunchTask": "AiBehaviors Win64 DebugGame Build",
+            "program": "D:\\Data\\Unreal\\AiBehaviors\\Binaries\\Win64\\UE4-Win64-DebugGame.exe",
+            "args": [],
+            "cwd": "D:\\Installed\\UE_4.27",
+            "stopAtEntry": false,
+            "type": "cppvsdbg",
+            "visualizerFile": "D:\\Installed\\UE_4.27\\Engine\\Extras\\VisualStudioDebugging\\UE4.natvis",
+            "console": "newExternalWindow"
+        },
+        {
+            "name": "AiBehaviors (Development)",
+            "request": "launch",
+            "preLaunchTask": "AiBehaviors Win64 Development Build",
+            "program": "D:\\Data\\Unreal\\AiBehaviors\\Binaries\\Win64\\UE4.exe",
+            "args": [],
+            "cwd": "D:\\Installed\\UE_4.27",
+            "stopAtEntry": false,
+            "type": "cppvsdbg",
+            "visualizerFile": "D:\\Installed\\UE_4.27\\Engine\\Extras\\VisualStudioDebugging\\UE4.natvis",
+            "console": "newExternalWindow"
+        },
+        {
+            "name": "AiBehaviors (Shipping)",
+            "request": "launch",
+            "preLaunchTask": "AiBehaviors Win64 Shipping Build",
+            "program": "D:\\Data\\Unreal\\AiBehaviors\\Binaries\\Win64\\UE4-Win64-Shipping.exe",
+            "args": [],
+            "cwd": "D:\\Installed\\UE_4.27",
+            "stopAtEntry": false,
+            "type": "cppvsdbg",
+            "visualizerFile": "D:\\Installed\\UE_4.27\\Engine\\Extras\\VisualStudioDebugging\\UE4.natvis",
+            "console": "newExternalWindow"
+        },
+        {
+            "name": "AiBehaviors (Test)",
+            "request": "launch",
+            "preLaunchTask": "AiBehaviors Win64 Test Build",
+            "program": "D:\\Data\\Unreal\\AiBehaviors\\Binaries\\Win64\\UE4-Win64-Test.exe",
+            "args": [],
+            "cwd": "D:\\Installed\\UE_4.27",
+            "stopAtEntry": false,
+            "type": "cppvsdbg",
+            "visualizerFile": "D:\\Installed\\UE_4.27\\Engine\\Extras\\VisualStudioDebugging\\UE4.natvis",
+            "console": "newExternalWindow"
+        },
+        {
+            "name": "AiBehaviorsEditor (Debug)",
+            "request": "launch",
+            "preLaunchTask": "AiBehaviorsEditor Win64 Debug Build",
+            "program": "D:\\Installed\\UE_4.27\\Engine\\Binaries\\Win64\\UE4Editor-Win64-Debug.exe",
+            "args": [
+                "D:\\Data\\Unreal\\AiBehaviors\\AiBehaviors.uproject"
+            ],
+            "cwd": "D:\\Installed\\UE_4.27",
+            "stopAtEntry": false,
+            "type": "cppvsdbg",
+            "visualizerFile": "D:\\Installed\\UE_4.27\\Engine\\Extras\\VisualStudioDebugging\\UE4.natvis",
+            "console": "newExternalWindow"
+        },
+        {
+            "name": "AiBehaviorsEditor (DebugGame)",
+            "request": "launch",
+            "preLaunchTask": "AiBehaviorsEditor Win64 DebugGame Build",
+            "program": "D:\\Installed\\UE_4.27\\Engine\\Binaries\\Win64\\UE4Editor-Win64-DebugGame.exe",
+            "args": [
+                "D:\\Data\\Unreal\\AiBehaviors\\AiBehaviors.uproject"
+            ],
+            "cwd": "D:\\Installed\\UE_4.27",
+            "stopAtEntry": false,
+            "type": "cppvsdbg",
+            "visualizerFile": "D:\\Installed\\UE_4.27\\Engine\\Extras\\VisualStudioDebugging\\UE4.natvis",
+            "console": "newExternalWindow"
+        },
+        {
+            "name": "AiBehaviorsEditor (Development)",
+            "request": "launch",
+            "preLaunchTask": "AiBehaviorsEditor Win64 Development Build",
+            "program": "D:\\Installed\\UE_4.27\\Engine\\Binaries\\Win64\\UE4Editor.exe",
+            "args": [
+                "D:\\Data\\Unreal\\AiBehaviors\\AiBehaviors.uproject"
+            ],
+            "cwd": "D:\\Installed\\UE_4.27",
+            "stopAtEntry": false,
+            "type": "cppvsdbg",
+            "visualizerFile": "D:\\Installed\\UE_4.27\\Engine\\Extras\\VisualStudioDebugging\\UE4.natvis",
+            "console": "newExternalWindow"
+        },
+        {
+            "name": "Generate Project Files",
+            "type": "clr",
+            "request": "launch",
+            "program": "D:\\Installed\\UE_4.27\\Engine\\Binaries\\DotNET\\UnrealBuildTool.exe",
+            "console": "externalTerminal",
+            "args": [
+                "-projectfiles",
+                "-vscode",
+                "-project=D:\\Data\\Unreal\\AiBehaviors\\AiBehaviors.uproject",
+                "-game",
+                "-engine"
+            ],
+            "internalConsoleOptions": "openOnSessionStart",
+            "cwd": "D:\\Installed\\UE_4.27"
+        }
+    ]
 }

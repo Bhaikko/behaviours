@@ -10,7 +10,12 @@
 		}
 	],
 	"settings": {
-		"typescript.tsc.autoDetect": "off"
+		"typescript.tsc.autoDetect": "off",
+		"C_Cpp.default.forcedInclude": [
+			"${default}",
+			"D:\\Data\\Unreal\\AiBehaviors\\Intermediate\\Build\\Win64\\UE4Editor\\Development\\AiBehaviors\\Definitions.AiBehaviors.h",
+			"D:\\Data\\Unreal\\AiBehaviors\\Intermediate\\Build\\Win64\\AiBehaviorsEditor\\Development\\Engine\\SharedPCH.Engine.ShadowErrors.h"
+		]
 	},
 	"extensions": {
 		"recommendations": [
