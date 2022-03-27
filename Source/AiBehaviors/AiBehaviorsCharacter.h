@@ -63,10 +63,27 @@ protected:
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 	// End of APawn interface
 
+	virtual void Tick(float deltaSeconds) override;
+
 public:
 	/** Returns CameraBoom subobject **/
 	FORCEINLINE class USpringArmComponent* GetCameraBoom() const { return CameraBoom; }
 	/** Returns FollowCamera subobject **/
-	FORCEINLINE class UCameraComponent* GetFollowCamera() const { return FollowCamera; }
+	FORCEINLINE class UCameraComponent* GetFollowCamera() const { return FollowCamera; } 
+
+protected:
+	bool IKFootTrace(FName socketName, float distance, FHitResult& hitResult);
+
+	void HandleIKForLegs(float deltaSeconds);
+
+public:
+	UPROPERTY(BlueprintReadWrite, VisibleAnywhere)
+	float IkHipOffset;
+	
+	UPROPERTY(BlueprintReadWrite, VisibleAnywhere)
+	float IkLeftFootOffset;
+
+	UPROPERTY(BlueprintReadWrite, VisibleAnywhere)
+	float IkRightFootOffset;
 };
 

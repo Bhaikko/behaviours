@@ -8,6 +8,7 @@
 #include "GameFramework/CharacterMovementComponent.h"
 #include "GameFramework/Controller.h"
 #include "GameFramework/SpringArmComponent.h"
+#include "DrawDebugHelpers.h"
 
 //////////////////////////////////////////////////////////////////////////
 // AAiBehaviorsCharacter
@@ -45,6 +46,8 @@ AAiBehaviorsCharacter::AAiBehaviorsCharacter()
 
 	// Note: The skeletal mesh and anim blueprint references on the Mesh component (inherited from Character) 
 	// are set in the derived blueprint asset named MyCharacter (to avoid direct content references in C++)
+
+	IkHipOffset = 0.0f;
 }
 
 //////////////////////////////////////////////////////////////////////////
@@ -76,6 +79,10 @@ void AAiBehaviorsCharacter::SetupPlayerInputComponent(class UInputComponent* Pla
 	PlayerInputComponent->BindAction("ResetVR", IE_Pressed, this, &AAiBehaviorsCharacter::OnResetVR);
 }
 
+void AAiBehaviorsCharacter::Tick(float deltaSeconds)
+{
+	HandleIKForLegs(deltaSeconds);
+}
 
 void AAiBehaviorsCharacter::OnResetVR()
 {
@@ -137,4 +144,47 @@ void AAiBehaviorsCharacter::MoveRight(float Value)
 		// add movement in that direction
 		AddMovementInput(Direction, Value);
 	}
+}
+
+bool AAiBehaviorsCharacter::IKFootTrace(FName socketName, float distance, FHitResult& hitResult)
+{
+	FVector socketLocation = GetMesh()->GetSocketLocation(socketName);
+	FVector actorLocation = GetActorLocation();
+
+	FVector lineTraceStart = FVector(socketLocation.X, socketLocation.Y, actorLocation.Z);
+	FVector lineTraceEnd = FVector(socketLocation.X, socketLocation.Y, socketLocation.Z - distance);
+
+	return GetWorld()->LineTraceSingleByChannel(hitResult, lineTraceStart, lineTraceEnd, ECollisionChannel::ECC_Visibility);
+}
+
+void AAiBehaviorsCharacter::HandleIKForLegs(float deltaSeconds)
+{
+	FHitResult leftFootIK, rightFootIK;
+
+	bool leftHit = IKFootTrace(FName("foot_lSocket"), GetCapsuleComponent()->GetUnscaledCapsuleHalfHeight(), leftFootIK);
+	bool rightHit = IKFootTrace(FName("foot_rSocket"), GetCapsuleComponent()->GetUnscaledCapsuleHalfHeight(), rightFootIK);
+
+	float 	leftFootTraceOffset = 0.0f,
+			rightFootTraceOffset = 0.0f;
+		
+
+	if (leftHit) {
+		// DrawDebugLine(GetWorld(), GetActorLocation(), leftFootIK.Location, FColor::Red, false, 0.5f);
+		leftFootTraceOffset = (leftFootIK.Location - GetMesh()->GetComponentLocation()).Z - IkHipOffset;
+
+		IkLeftFootOffset = FMath::FInterpTo(IkLeftFootOffset, leftFootTraceOffset, deltaSeconds, 20.0f);		
+	}
+
+	
+	if (rightHit) {
+		// DrawDebugLine(GetWorld(), GetActorLocation(), leftFootIK.Location, FColor::Red, false, 0.5f);
+		rightFootTraceOffset = (rightFootIK.Location - GetMesh()->GetComponentLocation()).Z - IkHipOffset;
+
+		IkRightFootOffset = FMath::FInterpTo(IkRightFootOffset, rightFootTraceOffset, deltaSeconds, 20.0f);
+	}
+	
+	float hipOffset = FMath::Abs((leftFootIK.Location - rightFootIK.Location).Z);
+	hipOffset = hipOffset < 50.0f ? hipOffset * -0.5f : 0.0f;
+
+	IkHipOffset = FMath::FInterpTo(IkHipOffset, hipOffset, deltaSeconds, 20.0f);
 }
