@@ -48,6 +48,8 @@ AAiBehaviorsCharacter::AAiBehaviorsCharacter()
 	// are set in the derived blueprint asset named MyCharacter (to avoid direct content references in C++)
 
 	IkHipOffset = 0.0f;
+	leftHandHitWall = false;
+	rightHandHitWall = false;
 }
 
 //////////////////////////////////////////////////////////////////////////
@@ -82,6 +84,7 @@ void AAiBehaviorsCharacter::SetupPlayerInputComponent(class UInputComponent* Pla
 void AAiBehaviorsCharacter::Tick(float deltaSeconds)
 {
 	HandleIKForLegs(deltaSeconds);
+	HandleIKForHands(deltaSeconds);
 }
 
 void AAiBehaviorsCharacter::OnResetVR()
@@ -157,6 +160,15 @@ bool AAiBehaviorsCharacter::IKFootTrace(FName socketName, float distance, FHitRe
 	return GetWorld()->LineTraceSingleByChannel(hitResult, lineTraceStart, lineTraceEnd, ECollisionChannel::ECC_Visibility);
 }
 
+bool AAiBehaviorsCharacter::IKHandTrace(FName socketName, float distance, FHitResult& hitResult)
+{
+	FVector socketLocation = GetMesh()->GetSocketLocation(socketName);
+	FVector traceEnd = socketLocation + GetActorForwardVector() * distance;
+
+	return GetWorld()->LineTraceSingleByChannel(hitResult, socketLocation, traceEnd, ECollisionChannel::ECC_Visibility);
+
+}
+
 void AAiBehaviorsCharacter::HandleIKForLegs(float deltaSeconds)
 {
 	FHitResult leftFootIK, rightFootIK;
@@ -187,4 +199,15 @@ void AAiBehaviorsCharacter::HandleIKForLegs(float deltaSeconds)
 	hipOffset = hipOffset < 50.0f ? hipOffset * -0.5f : 0.0f;
 
 	IkHipOffset = FMath::FInterpTo(IkHipOffset, hipOffset, deltaSeconds, 20.0f);
+}
+
+void AAiBehaviorsCharacter::HandleIKForHands(float deltaSeconds)
+{
+	FHitResult leftHandIK, rightHandIK;
+
+	leftHandHitWall = IKHandTrace(FName("upperarm_lSocket"), 100.0f, leftHandIK);
+	rightHandHitWall = IKHandTrace(FName("upperarm_rSocket"), 100.0f, rightHandIK);
+
+	IKLeftHandLocation = leftHandIK.Location;
+	IKRightHandLocation = rightHandIK.Location;
 }

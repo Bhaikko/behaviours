@@ -74,7 +74,10 @@ public:
 protected:
 	bool IKFootTrace(FName socketName, float distance, FHitResult& hitResult);
 
+	bool IKHandTrace(FName socketName, float distance, FHitResult& hitResult);
+
 	void HandleIKForLegs(float deltaSeconds);
+	void HandleIKForHands(float deltaSeconds);
 
 public:
 	UPROPERTY(BlueprintReadWrite, VisibleAnywhere)
@@ -85,5 +88,17 @@ public:
 
 	UPROPERTY(BlueprintReadWrite, VisibleAnywhere)
 	float IkRightFootOffset;
+	
+	UPROPERTY(BlueprintReadWrite, VisibleAnywhere)
+	bool leftHandHitWall;
+
+	UPROPERTY(BlueprintReadWrite, VisibleAnywhere)
+	bool rightHandHitWall;
+
+	UPROPERTY(BlueprintReadWrite, VisibleAnywhere)
+	FVector IKLeftHandLocation;
+
+	UPROPERTY(BlueprintReadWrite, VisibleAnywhere)
+	FVector IKRightHandLocation;
 };
 
