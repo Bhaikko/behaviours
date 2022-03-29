@@ -50,6 +50,7 @@ AAiBehaviorsCharacter::AAiBehaviorsCharacter()
 	IkHipOffset = 0.0f;
 	leftHandHitWall = false;
 	rightHandHitWall = false;
+	IkLeftFootSurfaceNormal = FVector(0.0f, 0.0f, 1.0f);
 }
 
 //////////////////////////////////////////////////////////////////////////
@@ -181,10 +182,10 @@ void AAiBehaviorsCharacter::HandleIKForLegs(float deltaSeconds)
 		
 
 	if (leftHit) {
-		// DrawDebugLine(GetWorld(), GetActorLocation(), leftFootIK.Location, FColor::Red, false, 0.5f);
 		leftFootTraceOffset = (leftFootIK.Location - GetMesh()->GetComponentLocation()).Z - IkHipOffset;
 
-		IkLeftFootOffset = FMath::FInterpTo(IkLeftFootOffset, leftFootTraceOffset, deltaSeconds, 20.0f);		
+		IkLeftFootOffset = FMath::FInterpTo(IkLeftFootOffset, leftFootTraceOffset, deltaSeconds, 20.0f);
+		IkLeftFootSurfaceNormal = leftFootIK.Normal;
 	}
 
 	
@@ -193,6 +194,7 @@ void AAiBehaviorsCharacter::HandleIKForLegs(float deltaSeconds)
 		rightFootTraceOffset = (rightFootIK.Location - GetMesh()->GetComponentLocation()).Z - IkHipOffset;
 
 		IkRightFootOffset = FMath::FInterpTo(IkRightFootOffset, rightFootTraceOffset, deltaSeconds, 20.0f);
+		IkRightFootSurfaceNormal = rightFootIK.Normal;
 	}
 	
 	float hipOffset = FMath::Abs((leftFootIK.Location - rightFootIK.Location).Z);

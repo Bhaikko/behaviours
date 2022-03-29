@@ -80,25 +80,33 @@ protected:
 	void HandleIKForHands(float deltaSeconds);
 
 public:
-	UPROPERTY(BlueprintReadWrite, VisibleAnywhere)
+	// Legs IK
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = IK)
 	float IkHipOffset;
 	
-	UPROPERTY(BlueprintReadWrite, VisibleAnywhere)
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = IK)
 	float IkLeftFootOffset;
 
-	UPROPERTY(BlueprintReadWrite, VisibleAnywhere)
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = IK)
 	float IkRightFootOffset;
 	
-	UPROPERTY(BlueprintReadWrite, VisibleAnywhere)
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = IK)
+	FVector IkRightFootSurfaceNormal;
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = IK)
+	FVector IkLeftFootSurfaceNormal;
+	
+	// Hands IK
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = IK)
 	bool leftHandHitWall;
 
-	UPROPERTY(BlueprintReadWrite, VisibleAnywhere)
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = IK)
 	bool rightHandHitWall;
 
-	UPROPERTY(BlueprintReadWrite, VisibleAnywhere)
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = IK)
 	FVector IKLeftHandLocation;
 
-	UPROPERTY(BlueprintReadWrite, VisibleAnywhere)
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = IK)
 	FVector IKRightHandLocation;
 };
 
