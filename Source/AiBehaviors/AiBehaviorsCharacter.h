@@ -95,6 +95,12 @@ public:
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = IK)
 	FVector IkLeftFootSurfaceNormal;
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = IK)
+	FRotator IkLeftFootRotation;
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = IK)
+	FRotator IkRightFootRotation;
 	
 	// Hands IK
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = IK)

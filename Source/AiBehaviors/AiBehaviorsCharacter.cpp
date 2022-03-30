@@ -186,6 +186,12 @@ void AAiBehaviorsCharacter::HandleIKForLegs(float deltaSeconds)
 
 		IkLeftFootOffset = FMath::FInterpTo(IkLeftFootOffset, leftFootTraceOffset, deltaSeconds, 20.0f);
 		IkLeftFootSurfaceNormal = leftFootIK.Normal;
+
+		float rollRot = FMath::RadiansToDegrees(FMath::Atan2(IkLeftFootSurfaceNormal.Y, IkLeftFootSurfaceNormal.Z));
+		float pitchRot = FMath::RadiansToDegrees(FMath::Atan2(IkLeftFootSurfaceNormal.X, IkLeftFootSurfaceNormal.Z)) * -1.0f;
+
+		FRotator newRotation = FRotator(pitchRot, 0.0f, rollRot);
+		IkLeftFootRotation = FMath::RInterpTo(IkLeftFootRotation, newRotation, deltaSeconds, 100.0f);
 	}
 
 	
@@ -195,6 +201,12 @@ void AAiBehaviorsCharacter::HandleIKForLegs(float deltaSeconds)
 
 		IkRightFootOffset = FMath::FInterpTo(IkRightFootOffset, rightFootTraceOffset, deltaSeconds, 20.0f);
 		IkRightFootSurfaceNormal = rightFootIK.Normal;
+
+		float rollRot = FMath::RadiansToDegrees(FMath::Atan2(IkRightFootSurfaceNormal.Y, IkRightFootSurfaceNormal.Z));
+		float pitchRot = FMath::RadiansToDegrees(FMath::Atan2(IkRightFootSurfaceNormal.X, IkRightFootSurfaceNormal.Z)) * -1.0f;
+
+		FRotator newRotation = FRotator(pitchRot, 0.0f, rollRot);
+		IkRightFootRotation = FMath::RInterpTo(IkLeftFootRotation, newRotation, deltaSeconds, 100.0f);
 	}
 	
 	float hipOffset = FMath::Abs((leftFootIK.Location - rightFootIK.Location).Z);
