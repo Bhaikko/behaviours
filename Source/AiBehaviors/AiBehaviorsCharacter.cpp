@@ -84,6 +84,7 @@ void AAiBehaviorsCharacter::SetupPlayerInputComponent(class UInputComponent* Pla
 
 void AAiBehaviorsCharacter::Tick(float deltaSeconds)
 {
+	Super::Tick(deltaSeconds);
 	HandleIKForLegs(deltaSeconds);
 	HandleIKForHands(deltaSeconds);
 }
