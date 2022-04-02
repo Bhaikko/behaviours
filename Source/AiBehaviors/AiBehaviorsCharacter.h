@@ -18,6 +18,7 @@ class AAiBehaviorsCharacter : public ACharacter
 	/** Follow camera */
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Camera, meta = (AllowPrivateAccess = "true"))
 	class UCameraComponent* FollowCamera;
+
 public:
 	AAiBehaviorsCharacter();
 
@@ -111,8 +112,8 @@ public:
 	FVector IKRightHandLocation;
 
 protected:
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Handlers, meta = (AllowPrivateAccess = "true"))
-	class UCoverHandler* coverHandler;
+	UPROPERTY(VisibleAnywhere, Category = Handlers, meta = (AllowPrivateAccess = "true"))
+	class UCoverHandler* CoverHandler;
 
 protected:
 	void TryCover();

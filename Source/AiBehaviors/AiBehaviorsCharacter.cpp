@@ -10,7 +10,7 @@
 #include "GameFramework/SpringArmComponent.h"
 #include "DrawDebugHelpers.h"
 
-#include "AiBehaviors/Components/CoverHandler.h"
+#include "AiBehaviors/Handlers/CoverHandler.h"
 
 //////////////////////////////////////////////////////////////////////////
 // AAiBehaviorsCharacter
@@ -43,7 +43,7 @@ AAiBehaviorsCharacter::AAiBehaviorsCharacter()
 	FollowCamera->SetupAttachment(CameraBoom, USpringArmComponent::SocketName); // Attach the camera to the end of the boom and let the boom adjust to match the controller orientation
 	FollowCamera->bUsePawnControlRotation = false; // Camera does not rotate relative to arm
 
-	coverHandler = CreateDefaultSubobject<UCoverHandler>(TEXT("CoverHandler"));
+	CoverHandler = CreateDefaultSubobject<UCoverHandler>(TEXT("Cover Handler"));
 
 	IkHipOffset = 0.0f;
 	leftHandHitWall = false;
@@ -53,9 +53,10 @@ AAiBehaviorsCharacter::AAiBehaviorsCharacter()
 //////////////////////////////////////////////////////////////////////////
 // Input
 
-void AAiBehaviorsCharacter::SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent)
+void AAiBehaviorsCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 {
 	check(PlayerInputComponent);
+
 	PlayerInputComponent->BindAction("Jump", IE_Pressed, this, &ACharacter::Jump);
 	PlayerInputComponent->BindAction("Jump", IE_Released, this, &ACharacter::StopJumping);
 
@@ -131,7 +132,8 @@ void AAiBehaviorsCharacter::MoveRight(float Value)
 
 void AAiBehaviorsCharacter::TryCover()
 {
-	coverHandler->TryCover();
+
+	CoverHandler->TryCover(InputComponent->GetAxisValue("MoveForward"), InputComponent->GetAxisValue("MoveRight"));
 }
 
 bool AAiBehaviorsCharacter::IKFootTrace(FName socketName, float distance, FHitResult& hitResult)

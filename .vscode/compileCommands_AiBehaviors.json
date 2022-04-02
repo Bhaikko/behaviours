@@ -43,5 +43,15 @@
         "file": "d:\\\\Data\\\\Unreal\\\\AiBehaviors\\\\Source\\\\AiBehaviors\\\\Components\\\\CoverHandler.cpp",
         "command": "\"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.31.31103\\bin\\HostX64\\x64\\cl.exe\" @\"D:\\Data\\Unreal\\AiBehaviors\\.vscode\\compileCommands_AiBehaviors\\AiBehaviors.210.rsp\"",
         "directory": "D:\\Installed\\UE_4.27\\Engine\\Source"
+    },
+    {
+        "file": "d:\\\\Data\\\\Unreal\\\\AiBehaviors\\\\Source\\\\AiBehaviors\\\\Handlers\\\\CoverHandler.h",
+        "command": "\"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.31.31103\\bin\\HostX64\\x64\\cl.exe\" @\"D:\\Data\\Unreal\\AiBehaviors\\.vscode\\compileCommands_AiBehaviors\\AiBehaviors.210.rsp\"",
+        "directory": "D:\\Installed\\UE_4.27\\Engine\\Source"
+    },
+    {
+        "file": "d:\\\\Data\\\\Unreal\\\\AiBehaviors\\\\Source\\\\AiBehaviors\\\\Handlers\\\\CoverHandler.cpp",
+        "command": "\"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.31.31103\\bin\\HostX64\\x64\\cl.exe\" @\"D:\\Data\\Unreal\\AiBehaviors\\.vscode\\compileCommands_AiBehaviors\\AiBehaviors.210.rsp\"",
+        "directory": "D:\\Installed\\UE_4.27\\Engine\\Source"
     }
 ]
