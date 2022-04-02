@@ -31,9 +31,6 @@ public:
 
 protected:
 
-	/** Resets HMD orientation in VR. */
-	void OnResetVR();
-
 	/** Called for forwards/backward input */
 	void MoveForward(float Value);
 
@@ -59,9 +56,7 @@ protected:
 	void TouchStopped(ETouchIndex::Type FingerIndex, FVector Location);
 
 protected:
-	// APawn interface
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
-	// End of APawn interface
 
 	virtual void Tick(float deltaSeconds) override;
 
@@ -114,5 +109,13 @@ public:
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = IK)
 	FVector IKRightHandLocation;
+
+protected:
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Handlers, meta = (AllowPrivateAccess = "true"))
+	class UCoverHandler* coverHandler;
+
+protected:
+	void TryCover();
+
 };
 
