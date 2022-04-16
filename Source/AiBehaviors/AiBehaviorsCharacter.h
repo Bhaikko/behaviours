@@ -112,7 +112,7 @@ public:
 	FVector IKRightHandLocation;
 
 protected:
-	UPROPERTY(VisibleAnywhere, Category = Handlers, meta = (AllowPrivateAccess = "true"))
+	UPROPERTY(VisibleAnywhere, BlueprintReadonly, Category = Handlers, meta = (AllowPrivateAccess = "true"))
 	class UCoverHandler* CoverHandler;
 
 protected:

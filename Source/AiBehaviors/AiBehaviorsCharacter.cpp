@@ -81,12 +81,12 @@ void AAiBehaviorsCharacter::Tick(float deltaSeconds)
 
 void AAiBehaviorsCharacter::TouchStarted(ETouchIndex::Type FingerIndex, FVector Location)
 {
-		Jump();
+	Jump();
 }
 
 void AAiBehaviorsCharacter::TouchStopped(ETouchIndex::Type FingerIndex, FVector Location)
 {
-		StopJumping();
+	StopJumping();
 }
 
 void AAiBehaviorsCharacter::TurnAtRate(float Rate)
@@ -132,7 +132,6 @@ void AAiBehaviorsCharacter::MoveRight(float Value)
 
 void AAiBehaviorsCharacter::TryCover()
 {
-
 	CoverHandler->TryCover(InputComponent->GetAxisValue("MoveForward"), InputComponent->GetAxisValue("MoveRight"));
 }
 

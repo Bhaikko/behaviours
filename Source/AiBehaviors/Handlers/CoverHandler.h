@@ -48,8 +48,14 @@ public:
 	UFUNCTION()
 	void StopCover();
 
+	// Used to Align player with cover when moving to always stick to cover
+	UFUNCTION()
+	void CoverTrace();
+
 private:
 	bool WallTrace(float forward, float right, FHitResult& hitResult);
+
+	void MaintainCover(FHitResult& hitResult);
 
 
 };
